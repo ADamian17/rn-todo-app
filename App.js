@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, Text } from 'react-native';
+import styled from 'styled-components/native';
+import CardComponentView from './components/UI/CardComponentView';
+
+import InputComponent from './components/UI/InputComponent';
+import TextAreaComponent from './components/UI/TextAreaComponent';
+
+export const MainViewContainer = styled.View`
+  color: red;
+  padding: 50px;
+`;
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <MainViewContainer>
+
+        <CardComponentView title="New Task">
+            <InputComponent label="Date"/>
+            <InputComponent label="Time"/>
+            <TextAreaComponent label="description"/>
+
+            <Button title='add'/>
+            <Button title='clean'/>
+        </CardComponentView>
+
+      </MainViewContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
