@@ -1,17 +1,24 @@
 import { Text, TextInput } from 'react-native';
 
 import styled from 'styled-components/native';
+import { BaseStyledText, BaseStyledTextInput } from '../Styled/Bases';
 
-export const StyledInputComponent = styled.View`
-  border: 1px solid;
+const StyledTextAreaComponent = styled.View`
+  margin-bottom: 15px;
+`;
+
+const StyledTextArea = styled(BaseStyledTextInput)``;
+
+const StyledText = styled(BaseStyledText)`
+  margin-bottom:5px;
 `;
 
 const TextAreaComponent = ({ label }) => {
   return (
-    <StyledInputComponent>
-      <Text>{label}</Text>
-      <TextInput placeholder='text area' />
-    </StyledInputComponent>
+    <StyledTextAreaComponent>
+      <StyledText>{label}</StyledText>
+      <StyledTextArea multiline numberOfLines={5} />
+    </StyledTextAreaComponent>
   )
 }
 

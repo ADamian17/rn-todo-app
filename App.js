@@ -17,7 +17,7 @@ export default function App() {
         <CardComponentView title="New Task">
             <InputComponent label="Date"/>
             <InputComponent label="Time"/>
-            <TextAreaComponent label="description"/>
+            <TextAreaComponent label="Description"/>
 
             <Button title='add'/>
             <Button title='clean'/>

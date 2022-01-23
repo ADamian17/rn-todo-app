@@ -2,12 +2,24 @@ import { Text, View } from 'react-native';
 import styled from 'styled-components/native';
 
 const CardComponent = styled.View`
+  display:flex;
+  justify-content: center;
   border: 1px solid;
+  border-radius: 10px;
+  padding:20px;
 `;
 
 const ChildViewStyle = styled.View`
-  margin: 15px;
-  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+`;
+
+const HeaderText = styled.Text`
+  align-self: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
 `;
 
 
@@ -15,7 +27,7 @@ const ChildViewStyle = styled.View`
 const CardComponentView = ({ title, children }) => {
   return (
     <CardComponent>
-      <Text>{title}</Text>
+      <HeaderText>{title}</HeaderText>
       <ChildViewStyle>
         {
           children
