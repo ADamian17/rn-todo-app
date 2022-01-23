@@ -1,7 +1,7 @@
 import { Text, TextInput } from 'react-native';
 
 import styled from 'styled-components/native';
-import { BaseStyledText, BaseStyledTextInput } from '../Styled/Bases';
+import { BaseStyledText, BaseStyledTextInput } from '../Styles/Bases';
 
 const StyledInputComponent = styled.View`
   display: flex;

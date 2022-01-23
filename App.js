@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import styled from 'styled-components/native';
-import PrimaryButtomComponent from './components/UI/Buttons/PrimaryButton';
+import { PrimaryButtomComponent } from './components/UI/Buttons/PrimaryButton';
 import SecundaryButtomComponent from './components/UI/Buttons/SecundaryButton';
 import CardComponentView from './components/UI/CardComponentView';
 

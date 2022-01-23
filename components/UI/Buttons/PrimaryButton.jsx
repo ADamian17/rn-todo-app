@@ -1,6 +1,6 @@
 import BaseButtomComponent, { ButtomStyles } from "./BaseButtonComponent";
 
-const PrimaryButtomComponent = ({ title, onclick }) => {
+export const PrimaryButtomComponent = ({ title, onclick }) => {
     return (
         <BaseButtomComponent 
             text={title} 
@@ -10,5 +10,3 @@ const PrimaryButtomComponent = ({ title, onclick }) => {
             />
     )
 }
-
-export default PrimaryButtomComponent;

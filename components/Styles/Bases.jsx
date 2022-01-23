@@ -5,6 +5,7 @@ export const BaseStyledTextInput = styled.TextInput`
 `;
 
 export const BaseStyledText = styled.Text``;
+
 export const BaseStyledButtom = styled.Button`
     padding: 13px;
 `;
