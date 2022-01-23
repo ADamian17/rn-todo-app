@@ -19,11 +19,15 @@ const StyledText = styled(BaseStyledText)`
   flex:1;
 `;
 
-const InputComponent = ({ label }) => {
+const InputComponent = ({ label, val, onChange }) => {
   return (
     <StyledInputComponent>
       <StyledText>{label}</StyledText>
-      <StyledTextInput placeholder='' />
+      <StyledTextInput 
+        placeholder='' 
+        value={val} 
+        onChangeText={onChange}
+        />
     </StyledInputComponent>
   )
 }

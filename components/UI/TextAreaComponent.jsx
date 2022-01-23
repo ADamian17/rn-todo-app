@@ -13,11 +13,11 @@ const StyledText = styled(BaseStyledText)`
   margin-bottom:5px;
 `;
 
-const TextAreaComponent = ({ label }) => {
+const TextAreaComponent = ({ label,val, onChange }) => {
   return (
     <StyledTextAreaComponent>
       <StyledText>{label}</StyledText>
-      <StyledTextArea multiline numberOfLines={5} />
+      <StyledTextArea multiline numberOfLines={5} value={val} onChangeText={onChange} />
     </StyledTextAreaComponent>
   )
 }
