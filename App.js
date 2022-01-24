@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import styled from 'styled-components/native';
-import PrimaryButtomComponent from './components/UI/Buttons/PrimaryButton';
-import SecundaryButtomComponent from './components/UI/Buttons/SecundaryButton';
+import BtnComponent from './components/UI/Buttons/BtnComponent';
+
 import CardComponentView from './components/UI/CardComponentView';
 
 import InputComponent from './components/UI/InputComponent';
@@ -79,15 +79,16 @@ export default function App() {
             />
 
             <ContainerButton>
-              <PrimaryButtomComponent 
-                title='add' 
-                onclick={() => addTask()}
-                />
+              <BtnComponent
+                text='add'
+                btnStyle="primary" 
+                onPress={() => addTask()} />
 
-              <SecundaryButtomComponent 
-              title='clean'
-              onclick={() => cleanForm()}
-              />
+              <BtnComponent
+                text='clear'
+                btnStyle="secondary" 
+                onPress={() => cleanForm()} />
+
             </ContainerButton>
         </CardComponentView>
 

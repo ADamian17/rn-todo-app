@@ -5,15 +5,7 @@ export const BaseStyledTextInput = styled.TextInput`
 `;
 
 export const BaseStyledText = styled.Text``;
+
 export const BaseStyledButtom = styled.Button`
     padding: 13px;
-`;
-
-export const StyledPrimaryButtom = styled(BaseStyledButtom)`
-    background-color: #000;
-`;
-
-export const StyledSecundaryButtom = styled(BaseStyledButtom)`
-    background-color: transparent;
-    color: #000;
 `;
