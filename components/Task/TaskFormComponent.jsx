@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
+import DateField from 'react-native-datefield';
 
 import styled from "styled-components";
 import { TaskModel } from "../../Models/TaskModel";
@@ -8,6 +9,7 @@ import BtnComponent from "../UI/Buttons/BtnComponent";
 import CardComponentView from "../UI/CardComponentView";
 import InputComponent from "../UI/InputComponent";
 import TextAreaComponent from "../UI/TextAreaComponent";
+import DateInputComponent from "../UI/DateInputComponent";
 
 const ContainerButton = styled.View`
   display:flex;
@@ -29,7 +31,10 @@ const TaskFormComponent = () => {
   };
 
   const addTask = () => {
-   setTasklist((prevTaskList) => {
+
+
+
+    setTasklist((prevTaskList) => {
      return [...prevTaskList, new TaskModel(date, time, description)] 
    });
 
@@ -38,10 +43,10 @@ const TaskFormComponent = () => {
 
   return (
     <CardComponentView title="New Task">
-        <InputComponent 
+        
+        <DateInputComponent 
           label="Date" 
-          val={date} 
-          onChange={setDate}
+          onSubmit={(value) => setDate(value)}
         />
         <InputComponent 
           label="Time"

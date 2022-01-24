@@ -3,14 +3,14 @@ import { FlatList, Text, View } from "react-native";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { listTaskState } from "../../recoil/atoms";
 
-const Item = ({ title, id }) => (
+const Item = ({ title, id, date }) => (
   <View>
-    <Text>{title} - {id}</Text>
+    <Text>{title} - {id} - {date}</Text>
   </View>
 );  
 
 const renderItem = ({ item }) => (
-  <Item title={item.description} id={item.id}/>
+  <Item title={item.description} id={item.id} date={item.date}/>
 );
 
 const TaskListComponent = () => {
