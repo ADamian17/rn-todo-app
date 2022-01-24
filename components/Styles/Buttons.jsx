@@ -1,17 +1,44 @@
-const buttons = {
-  primary: '#000',
-  secondary: 'transparent'
+import styled from "styled-components/native";
+
+const buttonsStyles = {
+  default: { 
+    bgColor: '#000',
+    txtColor: 'white'
+  },
+  primary: { 
+    bgColor: '#3936f3',
+    txtColor: 'white'
+  },
+  secondary: { 
+    bgColor: 'transparent',
+    txtColor: 'black'
+  },
 }
 
-export const BaseStyledButtom = styled.Button`
-    padding: 13px;
+export const BaseStyledButtom = styled.Pressable`
+  padding: 10px;
+  width: 40%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
 `;
 
-export const StyledPrimaryButtom = styled(BaseStyledButtom)`
-    background-color: #000;
+export const CustomBtn = styled(BaseStyledButtom)`
+  background-color: ${({ btnType }) => btnType ? 
+    buttonsStyles[btnType].bgColor :  
+    buttonsStyles['default'].bgColor };
+  ${
+    ({ btnType }) =>
+    btnType === 'primary' ? 
+    'border: none' : 
+    ''
+  }   
 `;
 
-export const StyledSecundaryButtom = styled(BaseStyledButtom)`
-    background-color: transparent;
-    color: #000;
+export const CustomBtnText = styled.Text`
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: ${({ btnType }) => btnType ? 
+    buttonsStyles[btnType].txtColor :  
+    buttonsStyles['default'].txtColor};
 `;
