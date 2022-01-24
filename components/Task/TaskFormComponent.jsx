@@ -11,6 +11,7 @@ import InputComponent from "../UI/InputComponent";
 import TextAreaComponent from "../UI/TextAreaComponent";
 import DateInputComponent from "../UI/DateInputComponent";
 import { formatDate } from "../../utils/helper";
+import { IsValidDate } from "../../utils/validates";
 
 const ContainerButton = styled.View`
   display:flex;
@@ -32,6 +33,7 @@ const TaskFormComponent = () => {
   };
 
   const addTask = () => {
+    console.log(IsValidDate(date));
     setTasklist((prevTaskList) => {
      return [...prevTaskList, new TaskModel(date, time, description)] 
    });
@@ -44,21 +46,17 @@ const TaskFormComponent = () => {
         
         <DateInputComponent 
           label="Date"
-          styleInput={{ fontSize: 15 }}
-          containerStyle={{ marginVertical: 20 }} 
-          onSubmit={(value) => setDate(formatDate(value))}
-          // onSubmit={(value) => setDate(value.toString())}
-        />
+          onSubmit={(value) => setDate(formatDate(value))} />
+
         <InputComponent 
           label="Time"
           val={time} 
-          onChange={setTime}
-        />
+          onChange={setTime} />
+
         <TextAreaComponent 
           label="Description"
           val={description} 
-          onChange={setDescription}
-        />
+          onChange={setDescription} />
 
         <ContainerButton>
           <BtnComponent
