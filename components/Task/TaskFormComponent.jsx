@@ -10,6 +10,7 @@ import CardComponentView from "../UI/CardComponentView";
 import InputComponent from "../UI/InputComponent";
 import TextAreaComponent from "../UI/TextAreaComponent";
 import DateInputComponent from "../UI/DateInputComponent";
+import { formatDate } from "../../utils/helper";
 
 const ContainerButton = styled.View`
   display:flex;
@@ -31,9 +32,6 @@ const TaskFormComponent = () => {
   };
 
   const addTask = () => {
-
-
-
     setTasklist((prevTaskList) => {
      return [...prevTaskList, new TaskModel(date, time, description)] 
    });
@@ -45,8 +43,11 @@ const TaskFormComponent = () => {
     <CardComponentView title="New Task">
         
         <DateInputComponent 
-          label="Date" 
-          onSubmit={(value) => setDate(value)}
+          label="Date"
+          styleInput={{ fontSize: 15 }}
+          containerStyle={{ marginVertical: 20 }} 
+          onSubmit={(value) => setDate(formatDate(value))}
+          // onSubmit={(value) => setDate(value.toString())}
         />
         <InputComponent 
           label="Time"

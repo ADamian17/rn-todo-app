@@ -1,0 +1,1 @@
+export const formatDate = (date) => date.toLocaleString().slice(0, 8);
