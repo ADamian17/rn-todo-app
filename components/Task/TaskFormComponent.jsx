@@ -33,7 +33,7 @@ const TaskFormComponent = () => {
   };
 
   const addTask = () => {
-    console.log(IsValidDate(date));
+    console.log(date);
     setTasklist((prevTaskList) => {
      return [...prevTaskList, new TaskModel(date, time, description)] 
    });
