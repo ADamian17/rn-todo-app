@@ -1,6 +1,5 @@
-import { Text, TextInput } from 'react-native';
-import DateField from 'react-native-datefield';
 
+import DatePicker from 'react-native-date-picker';
 import styled from 'styled-components/native';
 import { BaseStyledText, BaseStyledTextInput } from '../Styles/Bases';
 
@@ -24,7 +23,7 @@ const DateInputComponent = ({ label, ...rest  }) => {
   return (
     <StyledInputComponent>
       <StyledText>{label}</StyledText>
-      <DateField {...rest} />
+      <DatePicker {...rest} />
     </StyledInputComponent>
   )
 }

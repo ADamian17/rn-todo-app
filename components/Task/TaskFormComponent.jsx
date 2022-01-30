@@ -1,17 +1,13 @@
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
-import DateField from 'react-native-datefield';
 
 import styled from "styled-components";
 import { TaskModel } from "../../Models/TaskModel";
 import { listTaskState } from "../../recoil/atoms";
 import BtnComponent from "../UI/Buttons/BtnComponent";
 import CardComponentView from "../UI/CardComponentView";
-import InputComponent from "../UI/InputComponent";
 import TextAreaComponent from "../UI/TextAreaComponent";
 import DateInputComponent from "../UI/DateInputComponent";
-import { formatDate } from "../../utils/helper";
-import { IsValidDate } from "../../utils/validates";
 
 const ContainerButton = styled.View`
   display:flex;
@@ -22,13 +18,13 @@ const ContainerButton = styled.View`
 const TaskFormComponent = () => {
   const setTasklist = useSetRecoilState(listTaskState)
 
-  const [startdate, setStartDate] = useState("");
-  const [enddate, setEndDate] = useState("");
+  const [startdate, setStartDate] = useState(new Date());
+  const [enddate, setEndDate] = useState(new Date());
   const [description, setDescription] = useState("");
 
   const cleanForm = () => {
-    setStartDate("")
-    setEndDate("")
+    setStartDate(new Date())
+    setEndDate(new Date())
     setDescription("")
   };
 
@@ -45,11 +41,13 @@ const TaskFormComponent = () => {
         
         <DateInputComponent 
           label="Start Date"
-          onSubmit={(value) => setStartDate(formatDate(value))} />
+          date={startdate} onDateChange={setStartDate}
+         />
 
         <DateInputComponent 
           label="End Date"
-          onSubmit={(value) => setEndDate(formatDate(value))} />
+          date={enddate} onDateChange={setEndDate}
+          />
 
         <TextAreaComponent 
           label="Description"
