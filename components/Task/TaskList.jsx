@@ -1,27 +1,21 @@
 import { FlatList, Text, View } from "react-native";
 
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { listTaskState } from "../../recoil/atoms";
-import { getDay, getMonth } from "../../utils/helper";
-
-const Item = ({ title, id, date }) => (
-  <View>
-    <Text>{ title } - { getMonth(date) } - { getDay(date) }</Text>
-  </View>
-);  
-
-const renderItem = ({ item }) => (
-  <Item title={item.description} id={item.id} date={item.date}/>
-);
+import CardComponentView from "../UI/CardComponentView";
+import ItemContainer from "./TaskLIstItem";
 
 const TaskListComponent = () => {
   const taskList = useRecoilValue(listTaskState);
   
   return (
-    <FlatList
+    <CardComponentView title="Tasks" borderColor="#ccc">
+      <FlatList
       data={taskList}
-      renderItem={renderItem}
+      renderItem={({item}) => <ItemContainer item={item}/>}
       keyExtractor={item => item.id} />
+    </CardComponentView>
+    
   );
 }
 

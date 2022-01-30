@@ -1,11 +1,13 @@
 import styled from 'styled-components/native';
 
-const CardComponent = styled.View`
+export const CardComponent = styled.View`
   display:flex;
   justify-content: center;
-  border: 1px solid;
-  border-radius: 10px;
+  border: 1px solid ${({ borderColor }) => borderColor ? borderColor : "black"};
+  border-radius: ${({ isBorderedRadius }) => isBorderedRadius ? 
+    "10px" : "0px" };
   padding:20px;
+  margin-bottom: 20px;
 `;
 
 const ChildViewStyle = styled.View`
@@ -23,9 +25,11 @@ const HeaderText = styled.Text`
 
 
 
-const CardComponentView = ({ title, children }) => {
+const CardComponentView = ({ title, isBorderedRadius, borderColor, children }) => {
   return (
-    <CardComponent>
+    <CardComponent 
+      isBorderedRadius={isBorderedRadius}
+      borderColor={borderColor}>
       <HeaderText>{title}</HeaderText>
       <ChildViewStyle>
         {

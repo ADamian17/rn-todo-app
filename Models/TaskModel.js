@@ -1,8 +1,8 @@
 export class TaskModel {
-  constructor (date, time, description) {
+  constructor (startdate, enddate, description) {
     this.id = this.generateId()
-    this.date = date;
-    this.time = time;
+    this.startdate = startdate;
+    this.enddate = enddate;
     this.description = description;
   }
 

@@ -22,36 +22,34 @@ const ContainerButton = styled.View`
 const TaskFormComponent = () => {
   const setTasklist = useSetRecoilState(listTaskState)
 
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [startdate, setStartDate] = useState("");
+  const [enddate, setEndDate] = useState("");
   const [description, setDescription] = useState("");
 
   const cleanForm = () => {
-    setDate("")
-    setTime("")
+    setStartDate("")
+    setEndDate("")
     setDescription("")
   };
 
   const addTask = () => {
-    console.log(date);
     setTasklist((prevTaskList) => {
-     return [...prevTaskList, new TaskModel(date, time, description)] 
+     return [...prevTaskList, new TaskModel(startdate, enddate, description)] 
    });
 
    cleanForm()
   }
 
   return (
-    <CardComponentView title="New Task">
+    <CardComponentView title="New Task" isBorderedRadius>
         
         <DateInputComponent 
-          label="Date"
-          onSubmit={(value) => setDate(formatDate(value))} />
+          label="Start Date"
+          onSubmit={(value) => setStartDate(formatDate(value))} />
 
-        <InputComponent 
-          label="Time"
-          val={time} 
-          onChange={setTime} />
+        <DateInputComponent 
+          label="End Date"
+          onSubmit={(value) => setEndDate(formatDate(value))} />
 
         <TextAreaComponent 
           label="Description"
