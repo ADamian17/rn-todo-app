@@ -1,6 +1,9 @@
-import { Text, View } from "react-native";
+import { Text, View, Pressable, Image } from "react-native";
 import styled from "styled-components/native";
 import { getDay, getMonth } from "../../utils/helper";
+
+import Eye from "../UI/Eye";
+import ImageBtn from "../UI/Buttons/ImageBtn";
 
 export const ContainerItem = styled.View`
   margin-bottom: 10px;
@@ -47,26 +50,27 @@ const DescriptionText = styled.Text`
 `;
 
 
-const DateView = ({label, date}) => {
+const DateView = ({ label, date }) => {
     return (
         <DateViewContanier>
             <DateInfoContanier>
-                <DateTextStyle>{ getDay(date) }</DateTextStyle>
-                <DateTextStyle>{ getMonth(date) }</DateTextStyle>
+                <DateTextStyle>{getDay(date)}</DateTextStyle>
+                <DateTextStyle>{getMonth(date)}</DateTextStyle>
             </DateInfoContanier>
             <TitleText>{label}</TitleText>
         </DateViewContanier>
     )
 }
 
-const ItemContainer = ({item}) => {
+const ItemContainer = ({ item }) => {
     return (
         <ContainerItem>
-            <Separator/>
+            <Separator />
             <ContainerItemData>
                 <DateView label="Star" date={item.startdate} />
                 <DateView label="End" date={item.enddate} />
-                <DescriptionText>{ item.description }</DescriptionText>
+                <DescriptionText>{item.description}</DescriptionText>
+                <ImageBtn ImageComponent={() => <Eye color="#000" />} />
             </ContainerItemData>
         </ContainerItem>
     )
