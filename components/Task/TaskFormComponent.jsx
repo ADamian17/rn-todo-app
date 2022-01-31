@@ -41,13 +41,17 @@ const TaskFormComponent = () => {
         
         <DateInputComponent 
           label="Start Date"
-          date={startdate} onDateChange={setStartDate}
+          id="StartDateTimePicker"
+          value={startdate} 
+          callback={(selectedDate) => setStartDate(selectedDate) }
          />
 
-        <DateInputComponent 
+        {/* <DateInputComponent 
           label="End Date"
-          date={enddate} onDateChange={setEndDate}
-          />
+          id="EndDateTimePicker"
+          value={enddate}
+          callback={(selectedDate) => setEndDate(selectedDate) }
+          /> */}
 
         <TextAreaComponent 
           label="Description"

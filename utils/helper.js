@@ -1,4 +1,9 @@
-export const formatDate = (date) => date.toString();
+import moment from "moment";
+
+export const formatDate = (date) => {
+    moment.locale('en');
+    return moment(date).format('LL')
+}
 
 export const getDay = (value) => {
     return value.getDate()
