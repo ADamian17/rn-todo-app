@@ -25,7 +25,7 @@ const StyledText = styled(BaseStyledText)`
 
 
 
-const DateInputComponent = ({ label, id, callback  }) => {
+const DateInputComponent = ({ label, id, callback }) => {
 
   const [date, setDate] = useState(new Date());
   const [labelDate, setLabelDate] = useState("");
@@ -57,14 +57,14 @@ const DateInputComponent = ({ label, id, callback  }) => {
           <RNDateTimePicker
             testID={id}
             value={date}
-            display="spinner"
+            display="default"
             onChange={onChange}
           />
         )}
       </View>
-      
-      
-     
+
+
+
     </StyledInputComponent>
   )
 }

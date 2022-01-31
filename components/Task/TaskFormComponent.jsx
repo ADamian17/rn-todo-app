@@ -30,47 +30,47 @@ const TaskFormComponent = () => {
 
   const addTask = () => {
     setTasklist((prevTaskList) => {
-     return [...prevTaskList, new TaskModel(startdate, enddate, description)] 
-   });
+      return [...prevTaskList, new TaskModel(startdate, enddate, description)]
+    });
 
-   cleanForm()
+    cleanForm()
   }
 
   return (
     <CardComponentView title="New Task" isBorderedRadius>
-        
-        <DateInputComponent 
-          label="Start Date"
-          id="StartDateTimePicker"
-          value={startdate} 
-          callback={(selectedDate) => setStartDate(selectedDate) }
-         />
 
-        {/* <DateInputComponent 
-          label="End Date"
-          id="EndDateTimePicker"
-          value={enddate}
-          callback={(selectedDate) => setEndDate(selectedDate) }
-          /> */}
+      <DateInputComponent
+        label="Start Date"
+        id="StartDateTimePicker"
+        value={startdate}
+        callback={(selectedDate) => setStartDate(selectedDate)}
+      />
 
-        <TextAreaComponent 
-          label="Description"
-          val={description} 
-          onChange={setDescription} />
+      <DateInputComponent
+        label="End Date"
+        id="EndDateTimePicker"
+        value={enddate}
+        callback={(selectedDate) => setEndDate(selectedDate)}
+      />
 
-        <ContainerButton>
-          <BtnComponent
-            text='add'
-            btnStyle="primary" 
-            onPress={() => addTask()} />
+      <TextAreaComponent
+        label="Description"
+        val={description}
+        onChange={setDescription} />
 
-          <BtnComponent
-            text='clear'
-            btnStyle="secondary" 
-            onPress={() => cleanForm()} />
+      <ContainerButton>
+        <BtnComponent
+          text='add'
+          btnStyle="primary"
+          onPress={() => addTask()} />
 
-        </ContainerButton>
-    </CardComponentView>    
+        <BtnComponent
+          text='clear'
+          btnStyle="secondary"
+          onPress={() => cleanForm()} />
+
+      </ContainerButton>
+    </CardComponentView>
   );
 }
 
