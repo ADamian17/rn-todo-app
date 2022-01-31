@@ -8,6 +8,7 @@ import BtnComponent from "../UI/Buttons/BtnComponent";
 import CardComponentView from "../UI/CardComponentView";
 import TextAreaComponent from "../UI/TextAreaComponent";
 import DateInputComponent from "../UI/DateInputComponent";
+import { formatDate } from "../../utils/helper";
 
 const ContainerButton = styled.View`
   display:flex;
@@ -21,6 +22,8 @@ const TaskFormComponent = () => {
   const [startdate, setStartDate] = useState(new Date());
   const [enddate, setEndDate] = useState(new Date());
   const [description, setDescription] = useState("");
+  const [labelStarDate, setLabelStarDate] = useState("Set Date")
+  const [labelEndDate, setLabelEndDate] = useState("Set Date")
 
   const cleanForm = () => {
     setStartDate(new Date())
@@ -43,14 +46,23 @@ const TaskFormComponent = () => {
         label="Start Date"
         id="StartDateTimePicker"
         value={startdate}
-        callback={(selectedDate) => setStartDate(selectedDate)}
+        callback={(selectedDate) => {
+          setStartDate(selectedDate)
+          setLabelStarDate(formatDate(selectedDate))
+        }}
+        inputLabel={labelStarDate}
       />
 
       <DateInputComponent
         label="End Date"
         id="EndDateTimePicker"
         value={enddate}
-        callback={(selectedDate) => setEndDate(selectedDate)}
+        callback={(selectedDate) => {
+            setEndDate(selectedDate)
+            setLabelEndDate(formatDate(selectedDate))
+          } 
+        }
+        inputLabel={labelEndDate}
       />
 
       <TextAreaComponent

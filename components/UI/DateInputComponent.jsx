@@ -25,19 +25,16 @@ const StyledText = styled(BaseStyledText)`
 
 
 
-const DateInputComponent = ({ label, id, callback }) => {
+const DateInputComponent = ({ label, id, inputLabel, callback }) => {
 
   const [date, setDate] = useState(new Date());
-  const [labelDate, setLabelDate] = useState("");
   const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date
-    setLabelDate(formatDate(currentDate));
-    setDate(currentDate);
-    callback(currentDate)
-    console.log(event)
+    setDate(currentDate)
     setShow(false)
+    callback(currentDate)
   };
 
   const showDatepicker = () => {
@@ -49,9 +46,7 @@ const DateInputComponent = ({ label, id, callback }) => {
       <StyledText>{label}</StyledText>
       <View>
         <Pressable onPress={showDatepicker} >
-          <Text>
-            {labelDate ? labelDate : "Set Date"}
-          </Text>
+          <Text>{inputLabel}</Text>
         </Pressable>
         {show && (
           <RNDateTimePicker

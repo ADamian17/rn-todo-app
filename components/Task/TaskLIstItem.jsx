@@ -38,6 +38,7 @@ const DateInfoContanier = styled(DateViewContanier)`
 
 const DateTextStyle = styled.Text`
     font-size: 14px;
+    text-align: center;
 `;
 
 const TitleText = styled.Text`
