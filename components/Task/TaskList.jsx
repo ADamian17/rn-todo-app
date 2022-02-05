@@ -11,9 +11,12 @@ const TaskListComponent = () => {
   return (
     <CardComponentView title="Tasks" borderColor="#ccc">
       <FlatList
-      data={taskList}
-      renderItem={({item}) => <ItemContainer item={item}/>}
-      keyExtractor={item => item.id} />
+        showsVerticalScrollIndicator={false}
+        initialNumToRender={3}
+        scrollEnabled
+        data={taskList}
+        renderItem={({item}) => <ItemContainer item={item}/>}
+        keyExtractor={item => item.id} />
     </CardComponentView>
     
   );

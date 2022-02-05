@@ -2,12 +2,13 @@ import styled from 'styled-components/native';
 
 export const CardComponent = styled.View`
   display:flex;
-  justify-content: center;
   border: 1px solid ${({ borderColor }) => borderColor ? borderColor : "black"};
   border-radius: ${({ isBorderedRadius }) => isBorderedRadius ? 
     "10px" : "0px" };
-  padding:20px;
+  padding:15px;
   margin-bottom: 20px;
+  height: 350px;
+  overflow: hidden;
 `;
 
 const ChildViewStyle = styled.View`

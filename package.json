@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "4.0.0",
+    "@react-native-firebase/app": "^14.3.0",
+    "@react-native-firebase/database": "^14.3.0",
     "expo": "~44.0.0",
     "expo-dev-client": "~0.8.2",
     "expo-status-bar": "~1.2.0",
