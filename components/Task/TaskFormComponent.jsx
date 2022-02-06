@@ -9,7 +9,7 @@ import CardComponentView from "../UI/CardComponentView";
 import TextAreaComponent from "../UI/TextAreaComponent";
 import DateInputComponent from "../UI/DateInputComponent";
 import { formatDate } from "../../utils/helper";
-import { firebase } from "@react-native-firebase/database";
+import * as taskApi from "../../api/task";
 
 const ContainerButton = styled.View`
   display:flex;
@@ -33,22 +33,12 @@ const TaskFormComponent = () => {
   };
 
   const addTask = () => {
-    setTasklist((prevTaskList) => {
-      return [...prevTaskList, new TaskModel(startdate, enddate, description)]
-    });
-
-
-    const reference = firebase
-      .app()
-      .database('https://rn-todo-app-fbf7f-default-rtdb.firebaseio.com/')
-      .ref('/users/123');
-
-    reference.set({
-        startDate: startdate,
-        endDate: enddate,
-        description: description
-      })
-      .then(() => console.log('Data set.'));  
+    const task = new TaskModel(
+      startdate, 
+      enddate, 
+      description
+    )
+    taskApi.save(task)
 
     cleanForm()
   }

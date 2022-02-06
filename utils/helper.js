@@ -16,3 +16,7 @@ export const getMonth = (value) => {
 export const getYear = (value) => {
     return value.getFullYear()
 }
+
+export const parseDate = (value) => {
+    return new Date(value)
+}
