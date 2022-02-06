@@ -17,14 +17,14 @@ export const save = (task) => {
 export const setupListListener = (callback) => {
     const db = new DataBaseReference(`tasks`)
     db.getListener(itemsObject => {
-        const items = itemsObject ? Object.entries(itemsObject) : []
+        const items = itemsObject ? Object.keys(itemsObject) : []
 
-        const mapItems = items.map(item => {
+        const mapItems = items.map(itemId => {
             return new TaskModel(
-                parseDate(item[1].startDate),
-                parseDate(item[1].endDate),
-                item[1].description,
-                item[0]
+                parseDate(itemsObject[itemId].startDate),
+                parseDate(itemsObject[itemId].endDate),
+                itemsObject[itemId].description,
+                itemId
             )
         })
 
